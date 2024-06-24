@@ -2,6 +2,8 @@
 {
     public class HelloUserParamDTO
     {
-        public string Visitor_Name { get; set; } = null!;
+#pragma warning disable IDE1006 // Naming Styles
+        public string visitor_name { get; set; } = null!;
+#pragma warning restore IDE1006 // Naming Styles
     }
 }

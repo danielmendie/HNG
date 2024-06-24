@@ -36,6 +36,12 @@ namespace HNG.Api.Client.Extensions
                 return cachedResponse;
             }
 
+            //localhost range
+            if (ipRange == "0.0.0.0")
+            {
+                return new IPResponse();
+            }
+
             var response = await _ipInfoClient.IPApi.GetDetailsAsync(ip);
             _cache.Set(ipRange, response, _cacheDuration);
             return response;

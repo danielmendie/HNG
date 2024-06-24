@@ -1,4 +1,5 @@
 ﻿using HNG.Abstractions.Contracts;
+using HNG.Abstractions.Services.Business;
 using IPinfo.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,34 +12,24 @@ namespace HNG.Api.Client.Controllers
     [Route("api/hello")]
     public class HelloController : BaseApiController
     {
+        readonly IHelloService HelloService;
         /// <summary>
         /// HelloController constructor
         /// </summary>
-        public HelloController() { }
+        public HelloController(IHelloService helloService)
+        {
+            HelloService = helloService;
+        }
 
         /// <summary>
         /// Greet user - returns a greeting with user's location and ip address
         /// </summary>
         [HttpGet]
-        public IActionResult GreetUser([FromQuery] HelloUserParamDTO UserParam)
+        public ActionResult<VisitorIPAddressDTO> GreetUser([FromQuery] HelloUserParamDTO UserParam)
         {
-            if (HttpContext.Items.TryGetValue("IpInfo", out var ipInfo))
-            {
-                IPResponse? IP = ipInfo as IPResponse;
-                if (IP != null)
-                {
-                    var ipdetail = new GreetUserDTO
-                    {
-                        Client_Ip = IP.IP,
-                        Location = IP.CountryName,
-                        Greeting = $"hello, {UserParam.Visitor_Name}"
-                    };
-
-                    return Ok(ipdetail);
-                }
-            }
-
-            return NotFound("Your IP information not found");
+            IPResponse? Ip = null;
+            if (HttpContext.Items.TryGetValue("IpInfo", out var ipInfo)) { Ip = ipInfo as IPResponse; }
+            return Ok(HelloService.GreetUser(Ip?.IP, Ip?.CountryName, UserParam?.visitor_name));
         }
     }
 }

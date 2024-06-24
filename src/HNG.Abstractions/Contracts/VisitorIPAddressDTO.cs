@@ -1,9 +1,9 @@
 ﻿namespace HNG.Abstractions.Contracts
 {
-    public class GreetUserDTO
+    public class VisitorIPAddressDTO
     {
         public string Client_Ip { get; set; } = null!;
-        public string? Location { get; set; }
+        public string Location { get; set; } = null!;
         public string Greeting { get; set; } = null!;
     }
 }
