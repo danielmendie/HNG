@@ -1,6 +1,8 @@
 ﻿using HNG.Abstractions.Models;
+using HNG.Abstractions.Services.Business;
 using HNG.Abstractions.Services.Data;
 using HNG.Abstractions.Services.Infrastructure;
+using HNG.Business;
 using HNG.Data.Mock;
 using HNG.Data.Sql;
 using HNG.Mappers;
@@ -41,6 +43,7 @@ namespace HNG.Bootstrappers.Common
             }
 
             //business logic services
+            services.AddScoped<IHelloService, HelloService>();
             services.AddScoped<IServiceLogService, ServiceLogService>();
 
             return services;
