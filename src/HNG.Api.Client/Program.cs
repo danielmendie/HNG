@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var settings = SettingsConfig.GetConfiguredAppSettings(args, builder);
 
-builder.Services.AddSingleton<IPinfoClient>(new IPinfoClient.Builder().AccessToken("1636bfc14de8d4").Build());
+builder.Services.AddSingleton<IPinfoClient>(new IPinfoClient.Builder().AccessToken(settings.Settings.IPInfoKey).Build());
 builder.Services.AddScoped<IpInfoService>();
 
 // Add services to the container.
