@@ -1,3 +1,5 @@
+using HNG.Api.Client.Extensions;
+using IPinfo;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Converters;
@@ -6,6 +8,9 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
 var settings = SettingsConfig.GetConfiguredAppSettings(args, builder);
+
+builder.Services.AddSingleton<IPinfoClient>(new IPinfoClient.Builder().AccessToken("1636bfc14de8d4").Build());
+builder.Services.AddScoped<IpInfoService>();
 
 // Add services to the container.
 builder.Services
@@ -57,6 +62,8 @@ try
 
     app.UseForwardedHeaders(forwardedHeadersOptions);
     app.UseSwaggerCustomConfig(settings);
+
+    app.UseMiddleware<IpInfoMiddleware>();
 
     app.UseHttpsRedirection();
 

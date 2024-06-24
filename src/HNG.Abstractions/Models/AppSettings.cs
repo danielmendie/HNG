@@ -50,33 +50,11 @@
             public bool InTestMode { get; set; }
             public int TokenLifetimeMinutes { get; set; }
             public int GeneratedCodeLifetimeMinutes { get; set; }
-            public string AdminMailboxEmail { get; set; } = null!;
-            public string AdminMailboxName { get; set; } = null!;
             public bool DisableDeviceRegistration { get; set; }
             public bool EnableDetailedErrorMessages { get; set; }
 
-            public string? ApplicationLink { get; set; }
-            public string? DefaultRedirectLink { get; set; }
-            public string? MockProfileId { get; set; }
-            public string? MockUserId { get; set; }
-            public string? MockUserName { get; set; }
-            public string? MockCompanyId { get; set; }
+            public string? IPInfoKey { get; set; }
 
-            public string? EnquiriesBaseUrl { get; set; }
-            public string? InvesmentsBaseUrl { get; set; }
-            public string? ReportSetUpBaseUrl { get; set; }
-            public string? TransactionsBaseUrl { get; set; }
-            public string? NibssPayBaseUrl { get; set; }
-            public string? NotificationsBaseUrl { get; set; }
-            public string? NipBaseUrl { get; set; }
-            public string? NapsBaseUrl { get; set; }
-            public string? ApiConnectNapsBaseUrl { get; set; }
-            public string? AdminTokenBaseUrl { get; set; }
-            public string? CustomerTokenBaseUrl { get; set; }
-            public string? MFAFeeAccountNumber { get; set; }
-            public string? MFAFeeAccountName { get; set; }
-            public string? TermDepositAccountNumber { get; set; }
-            public string? TermDepositAccountName { get; set; }
         }
 
         public class IdentityServerSettings

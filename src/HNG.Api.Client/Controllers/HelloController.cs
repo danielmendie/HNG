@@ -1,4 +1,5 @@
 ﻿using HNG.Abstractions.Contracts;
+using IPinfo.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HNG.Api.Client.Controllers
@@ -19,10 +20,25 @@ namespace HNG.Api.Client.Controllers
         /// Greet user - returns a greeting with user's location and ip address
         /// </summary>
         [HttpGet]
-        public GreetUserDTO GreetUser([FromQuery] HelloUserParamDTO UserParam)
+        public IActionResult GreetUser([FromQuery] HelloUserParamDTO UserParam)
         {
-            var remoteIpAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
-            return new GreetUserDTO { Client_Ip = remoteIpAddress ?? "127.0.0.1", Location = "Nigeria", Greeting = $"hello, {UserParam.Visitor_Name}" };
+            if (HttpContext.Items.TryGetValue("IpInfo", out var ipInfo))
+            {
+                IPResponse? IP = ipInfo as IPResponse;
+                if (IP != null)
+                {
+                    var ipdetail = new GreetUserDTO
+                    {
+                        Client_Ip = IP.IP,
+                        Location = IP.CountryName,
+                        Greeting = $"hello, {UserParam.Visitor_Name}"
+                    };
+
+                    return Ok(ipdetail);
+                }
+            }
+
+            return NotFound("Your IP information not found");
         }
     }
 }

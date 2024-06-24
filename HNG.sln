@@ -8,6 +8,9 @@ EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HNG.Database", "src\HNG.Database\HNG.Database.sqlproj", "{B0BC97E5-BAD0-4680-93A2-3F6CB07B0A9F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__solution", "__solution", "{30A7DA74-43D1-49E3-A00A-4B618E0F381D}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10 - abstractions", "10 - abstractions", "{7D115296-B06F-48C3-9A2D-2C534D5958CD}"
 EndProject
@@ -25,29 +28,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "70 - tests", "70 - tests", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "80 - misc", "80 - misc", "{0F369E67-53C2-465F-A598-64E8C814CCBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HNG.Abstractions", "src\HNG.Abstractions\HNG.Abstractions.csproj", "{E0855F7D-1DFA-4E34-B780-D6A22860FAC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HNG.Abstractions", "src\HNG.Abstractions\HNG.Abstractions.csproj", "{E0855F7D-1DFA-4E34-B780-D6A22860FAC9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleValidator", "src\SimpleValidator\SimpleValidator.csproj", "{92C03F0B-86AB-4AE7-8FF2-E56EB5036FFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HNG.Mappers", "src\HNG.Mappers\HNG.Mappers.csproj", "{2083A101-8820-4C03-B5DE-0B3961E1A5D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HNG.Mappers", "src\HNG.Mappers\HNG.Mappers.csproj", "{2083A101-8820-4C03-B5DE-0B3961E1A5D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HNG.Data.Mock", "src\HNG.Data.Mock\HNG.Data.Mock.csproj", "{B872747E-B055-49F2-904E-F4B4EBDCC5EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HNG.Data.Mock", "src\HNG.Data.Mock\HNG.Data.Mock.csproj", "{B872747E-B055-49F2-904E-F4B4EBDCC5EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HNG.Data.Sql", "src\HNG.Data.Sql\HNG.Data.Sql.csproj", "{18311A84-7074-4AB6-905A-9B9F6576F669}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HNG.Data.Sql", "src\HNG.Data.Sql\HNG.Data.Sql.csproj", "{18311A84-7074-4AB6-905A-9B9F6576F669}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HNG.ServiceLogProvider", "src\HNG.ServiceLogProvider\HNG.ServiceLogProvider.csproj", "{B076CE86-A5A9-4354-93CA-EDB7408BC3D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HNG.ServiceLogProvider", "src\HNG.ServiceLogProvider\HNG.ServiceLogProvider.csproj", "{B076CE86-A5A9-4354-93CA-EDB7408BC3D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HNG.Business", "src\HNG.Business\HNG.Business.csproj", "{B9296489-DB39-41AC-8388-CD4D66B7B66A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HNG.Business", "src\HNG.Business\HNG.Business.csproj", "{B9296489-DB39-41AC-8388-CD4D66B7B66A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HNG.Bootstrappers.Common", "src\HNG.Bootstrappers.Common\HNG.Bootstrappers.Common.csproj", "{055D927F-38EC-45F9-83D5-A827089BFB0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HNG.Bootstrappers.Common", "src\HNG.Bootstrappers.Common\HNG.Bootstrappers.Common.csproj", "{055D927F-38EC-45F9-83D5-A827089BFB0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HNG.Api.Client", "src\HNG.Api.Client\HNG.Api.Client.csproj", "{D0C5528D-C3B6-48BC-94D6-FF9704A8AB5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HNG.Api.Client", "src\HNG.Api.Client\HNG.Api.Client.csproj", "{D0C5528D-C3B6-48BC-94D6-FF9704A8AB5F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_common", "_common", "{A571E212-949B-4A25-A8FF-628CF5023684}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HNG.Web.Common", "src\HNG.Web.Common\HNG.Web.Common.csproj", "{C3212CB5-2074-4DCE-9C70-F9DD2F962D28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HNG.Web.Common", "src\HNG.Web.Common\HNG.Web.Common.csproj", "{C3212CB5-2074-4DCE-9C70-F9DD2F962D28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HNG.DatabaseConfigurationProvider", "src\HNG.DatabaseConfigurationProvider\HNG.DatabaseConfigurationProvider.csproj", "{2F3895AD-3A7A-4587-BDE2-5D3F64B062FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HNG.DatabaseConfigurationProvider", "src\HNG.DatabaseConfigurationProvider\HNG.DatabaseConfigurationProvider.csproj", "{2F3895AD-3A7A-4587-BDE2-5D3F64B062FF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{4E3D7769-C90B-421F-8E66-6620A04682E4}"
 EndProject

@@ -5,9 +5,11 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <UserSecretsId>c780d673-88ae-438e-ad53-ca8ff5de23fb</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+	  <PackageReference Include="IPinfo" Version="3.0.0" />
 	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
 	  <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.5" />
 	  <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="7.0.0" />
