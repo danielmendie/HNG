@@ -8,7 +8,7 @@ namespace HNG.Api.Client.Controllers
     /// <summary>
     /// Hello Controller - greet user sending request to this endpoint
     /// </summary>
-    [Tags("Stage 1 - Greet User")]
+    [Tags("Stage 1 Task")]
     [Route("api/hello")]
     public class HelloController : BaseApiController
     {
