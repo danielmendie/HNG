@@ -29,7 +29,7 @@ namespace HNG.Api.Client.Controllers
         {
             IPResponse? Ip = null;
             if (HttpContext.Items.TryGetValue("IpInfo", out var ipInfo)) { Ip = ipInfo as IPResponse; }
-            return Ok(HelloService.GreetUser(Ip?.IP, Ip?.CountryName, UserParam?.visitor_name));
+            return Ok(HelloService.GreetUser(Ip?.IP, Ip?.City, UserParam?.visitor_name));
         }
     }
 }
