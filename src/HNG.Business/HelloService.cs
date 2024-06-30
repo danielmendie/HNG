@@ -9,7 +9,7 @@ namespace HNG.Business
         public HelloService()
         { }
 
-        public VisitorIPAddressDTO GreetUser(string? Ip, string? CountryName, string? VisitorName)
+        public VisitorIPAddressDTO GreetUser(string? Ip, string? City, string? VisitorName)
         {
             var validator = new Validator();
             validator
@@ -24,8 +24,8 @@ namespace HNG.Business
             var ipdetail = new VisitorIPAddressDTO
             {
                 Client_Ip = Ip!,
-                Location = CountryName!,
-                Greeting = $"Hello, {VisitorName}!, the temperature is {randomTemp} degrees celcius in {CountryName}"
+                Location = City!,
+                Greeting = $"Hello, {VisitorName}!, the temperature is {randomTemp} degrees celcius in {City}"
             };
 
             return ipdetail;
