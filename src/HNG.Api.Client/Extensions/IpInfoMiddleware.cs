@@ -23,12 +23,14 @@
         {
             if (context.Request.Path.StartsWithSegments("/api/hello"))
             {
-                var ipAddress = context.Connection.RemoteIpAddress?.ToString();
+                var ipAddress = context.Connection.RemoteIpAddress?.ToString(); //"34.232.123.202";
 
                 if (!string.IsNullOrEmpty(ipAddress))
                 {
                     var ipInfo = await ipInfoService.GetIpInfoAsync(ipAddress);
+                    var weatherInfo = await ipInfoService.GetWeatherInfoAsync(ipAddress, ipInfo?.Latitude, ipInfo?.Longitude);
                     context.Items["IpInfo"] = ipInfo;
+                    context.Items["WeatherInfo"] = weatherInfo;
                 }
             }
 

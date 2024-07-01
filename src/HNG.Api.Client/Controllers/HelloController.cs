@@ -2,6 +2,7 @@
 using HNG.Abstractions.Services.Business;
 using IPinfo.Models;
 using Microsoft.AspNetCore.Mvc;
+using OpenWeatherMap.Models;
 
 namespace HNG.Api.Client.Controllers
 {
@@ -25,11 +26,14 @@ namespace HNG.Api.Client.Controllers
         /// Greet user - returns a greeting with user's location and ip address
         /// </summary>
         [HttpGet]
-        public ActionResult<VisitorIPAddressDTO> GreetUser([FromQuery] HelloUserParamDTO UserParam)
+        public async Task<ActionResult<VisitorIPAddressDTO>> GreetUser([FromQuery] HelloUserParamDTO UserParam)
         {
             IPResponse? Ip = null;
+            WeatherInfo? Weather = null;
             if (HttpContext.Items.TryGetValue("IpInfo", out var ipInfo)) { Ip = ipInfo as IPResponse; }
-            return Ok(HelloService.GreetUser(Ip?.IP, Ip?.City, UserParam?.visitor_name));
+            if (HttpContext.Items.TryGetValue("WeatherInfo", out var weatherInfo)) { Weather = weatherInfo as WeatherInfo; }
+            var data = await HelloService.GreetUser(Ip?.IP, Ip?.City, Weather?.Main?.Temperature.DegreesCelsius.ToString(), UserParam?.visitor_name);
+            return Ok(data);
         }
     }
 }

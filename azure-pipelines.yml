@@ -1,7 +1,7 @@
 name: 1.0.$(Rev:r)
 
 trigger:
-- retail
+- main
 
 pool:
  vmImage: windows-latest
@@ -24,11 +24,11 @@ steps:
     command: restore
     projects: '**/*.csproj'
    
-- task: NuGetCommand@2
-  displayName: 'Restore Mailer (.NET 4.8) dependencies'
-  inputs:
-    command: 'restore'
-    restoreSolution: '$(solution)'
+# - task: NuGetCommand@2
+#   displayName: 'Restore Mailer (.NET 4.8) dependencies'
+#   inputs:
+#     command: 'restore'
+#     restoreSolution: '$(solution)'
 
 - task: VSBuild@1
   displayName: 'Build Database Project'

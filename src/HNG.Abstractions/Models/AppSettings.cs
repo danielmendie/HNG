@@ -11,7 +11,16 @@
         public SwaggerSettings Swagger { get; set; } = new SwaggerSettings();
         public CorsPolicy CorsPolicies { get; set; } = new CorsPolicy();
         public SerilogSettings Serilog { get; set; } = new SerilogSettings();
+        public OpenWeatherMapSettings OpenWeatherMap { get; set; } = new OpenWeatherMapSettings();
 
+
+        public class OpenWeatherMapSettings
+        {
+            public string ApiEndpoint { get; set; } = null!;
+            public string ApiKey { get; set; } = null!;
+            public string UnitSystem { get; set; } = null!;
+            public string Language { get; set; } = null!;
+        }
 
         public class OpenIdSettings
         {

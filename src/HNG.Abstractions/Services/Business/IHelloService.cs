@@ -4,6 +4,6 @@ namespace HNG.Abstractions.Services.Business
 {
     public interface IHelloService : IBusinessService
     {
-        VisitorIPAddressDTO GreetUser(string? Ip, string? City, string? VisitorName);
+        Task<VisitorIPAddressDTO> GreetUser(string? Ip, string? City, string? Temperature, string? VisitorName);
     }
 }

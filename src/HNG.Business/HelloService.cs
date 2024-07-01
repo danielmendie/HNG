@@ -9,12 +9,15 @@ namespace HNG.Business
         public HelloService()
         { }
 
-        public VisitorIPAddressDTO GreetUser(string? Ip, string? City, string? VisitorName)
+        public Task<VisitorIPAddressDTO> GreetUser(string? Ip, string? City, string? Temperature, string? VisitorName)
         {
+            var isDigit = long.TryParse(VisitorName, out var digitName);
+
             var validator = new Validator();
             validator
             .IsNotNullOrEmpty(nameof(Ip), Ip ?? string.Empty, "Your IP information could not found*")
             .IsNotNullOrEmpty(nameof(VisitorName), VisitorName ?? string.Empty, "Visitor name is required*")
+            .IsNot(nameof(isDigit), () => isDigit == true, "A valid visitor name should start with an alphabet")
             .EnsureNoHtml(nameof(Ip), Ip ?? string.Empty, "IP must not contain html content*")
             .EnsureNoHtml(nameof(VisitorName), VisitorName ?? string.Empty, "Visitor name must not contain html content*");
             validator.ThrowValidationExceptionIfInvalid();
@@ -25,10 +28,10 @@ namespace HNG.Business
             {
                 Client_Ip = Ip!,
                 Location = City!,
-                Greeting = $"Hello, {VisitorName}!, the temperature is {randomTemp} degrees celcius in {City}"
+                Greeting = $"Hello, {VisitorName}!, the temperature is {Temperature} degrees celcius in {City}"
             };
 
-            return ipdetail;
+            return Task.FromResult(ipdetail);
         }
     }
 }
